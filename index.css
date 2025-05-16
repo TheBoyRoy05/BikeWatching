@@ -7,6 +7,8 @@ body {
   box-sizing: border-box;
   margin: auto;
   padding: 1em;
+  background-color: #1D232A;
+  color: white;
 }
 
 html,
@@ -104,9 +106,15 @@ header em {
   align-items: center;
   margin-block: 1em;
   padding: 1em;
-  background: white;
+  background: #2A323C;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.legend-label {
+  font-weight: bold;
+  margin-right: 0.5em;
+  color: white;
 }
 
 .legend > div {
@@ -119,13 +127,4 @@ header em {
   color: white;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   font-weight: 500;
-}
-
-.legend-label {
-  font-weight: bold;
-  margin-right: 0.5em;
-}
-
-.legend .legend-label {
-  color: black;
 }
