@@ -1,0 +1,131 @@
+body {
+  font: 100%/1.5 system-ui, sans-serif;
+  display: flex;
+  flex-flow: column;
+  max-width: 80em;
+  min-height: 100vh;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 1em;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 5;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+header {
+  display: flex;
+  gap: 1em;
+  align-items: baseline;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+header label {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5em;
+}
+
+header input[type="range"] {
+  width: 300px;
+}
+
+header time,
+header em {
+  display: block;
+  min-width: 100px;
+  text-align: right;
+  height: 1.5em;
+  line-height: 1.5em;
+}
+
+header time {
+  display: none;
+}
+
+header em {
+  color: #666;
+  font-style: italic;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for effect */
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+#map svg {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+#map svg circle {
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+/* Color mixing for traffic flow */
+#map svg circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+}
+
+#map svg circle {
+  fill: var(--color);
+}
+
+/* Legend styles */
+.legend {
+  display: flex;
+  gap: 2em;
+  align-items: center;
+  margin-block: 1em;
+  padding: 1em;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend > div {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  background: var(--color);
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+}
+
+.legend-label {
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+.legend .legend-label {
+  color: black;
+}
